@@ -1,0 +1,35 @@
+{
+  "name": "atividade-pratica-01",
+  "version": "1.0.0",
+  "description": "Primeira atividade pratica de pw2 utilizando nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcouttinho/atv-pw2.git"
+  },
+  "keywords": [
+    "nodejs",
+    "atividade",
+    "pw2",
+    "sequelize",
+    "express",
+    "mysql"
+  ],
+  "author": "Guilherme Coutinho de Holanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gcouttinho/atv-pw2/issues"
+  },
+  "homepage": "https://github.com/gcouttinho/atv-pw2#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
