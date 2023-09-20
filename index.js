@@ -1,28 +1,16 @@
-// IMPORTAÇÃO DO MÓDULO EXPRESS
-const express = require('express');
-
-// IMPORTAÇÃO DO ARQUIVO DE MODEL DA TABELA
-// const Categoria = require("./model/Categoria")
-
-// INSTÂNCIA DO MÓDULO EXPRESS 
+const express = require("express");
 const app = express();
 
-// CONFIGURAÇÃO PARA O EXPRESS MANIPULAR JSON
 app.use(express.json());
 
-// CONFIGURAÇÃO PARA O EXPRESS TRABALHAR COM DADOS DE FORMULÁRIO
-app.use(express.urlencoded({extended:true}));
+const connection = require("./database/database");
 
-//IMPORTACAO DA CONTROLLER CATEGORIA
+const produtoController = require("./controller/Produto");
+app.use("/", produtoController);
+
 const categoriaController = require("./controller/Categoria");
 app.use("/", categoriaController);
 
-// TESTE DE CONEXÃO
-
-/* const connection = require('./database/database.js')
-console.log(connection) */
-
-// CRIAÇÃO DO SERVIDOR WEB DE REQUISIÇÕES E RESPOSTAS
 app.listen(3000, ()=>{
-    console.log("API LIVRARIA RODANDO EM: http://localhost:3000");
+    console.log('SERVIDOR RODANDO NA PORTA: http://localhost:3000')
 });

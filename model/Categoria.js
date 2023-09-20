@@ -1,35 +1,27 @@
-// IMPORTAÇÃO DO MODULO DO SEQUELIZE
-const sequelize = require('sequelize')
-
-// IMPORTAÇÇAO DA CONEXÃO COM O BANCO DE DADOS
+const sequelize = require("sequelize");
 const connection = require("../database/database")
 
-/*
-MAPEAMENTO DA TABELA DE CATEGORIA
-*/
-
-/* PARAMETROS DO METODO DEFINE:
-
-*/
-
 const Categoria = connection.define(
-    'tbl_categoria',
+    'tbl_categoria', 
     {
         codigo_categoria:{
-            type: sequelize.INTEGER,
+            type: sequelize.INTEGER(10).UNSIGNED, 
             autoIncrement: true,
             primaryKey: true
         },
+
         nome_categoria:{
-            type: sequelize.STRING(250),
+            type: sequelize.STRING(255),
+            allowNull: false
+        },
+
+        observacoes_categoria:{
+            type: sequelize.TEXT,
             allowNull: false
         }
     }
-
 );
 
-//SINCRONIZAÇÃO COM O BANCO DE DADOS - CREIA A TABELA CASO ESSA NÃO EXISTA
+Categoria.sync({force:false})
 
-Categoria.sync({force:false});
-
-module.exports = Categoria;
+module.exports = Categoria

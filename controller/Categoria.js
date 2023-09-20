@@ -1,31 +1,25 @@
-
 const express = require("express");
-
 const categoriaModel = require("../model/Categoria");
-
 const router = express.Router();
 
-//ROTA DE INSERÇÃO DE CATEGORIA
+router.get("/categoria", (req, res) => {
+    res.send('Rota raiz de categorias');
+});
 
-router.post("/categoria/cadastrarCategoria", (req, res)=>{
+router.post("/categoria/cadastrarCategoria", (req, res) => {
+    res.send('Categoria cadastrado com sucesso');
+});
 
-    let {nome_categoria} = req.body;
+router.get("/categoria/listarCategoria", (req, res) => {
+    res.send('Categoria listado com sucesso');
+});
 
-    //console.log(req.body)
+router.put("/categoria/alterarCategoria", (req, res) => {
+    res.send('Categoria alterado com sucesso');
+});
 
-    categoriaModel.create({nome_categoria})
-    .then(()=>{
-        return res.status(201).json({
-            errorStatus:false,
-            messageStatus: "Categoria inserida com sucesso!"
-        })
-    })
-    .catch(((error)=>{
-        return res.status(500).json({
-            errorStatus:true,
-            messageStatus: error
-        });
-    }));
+router.delete("/categoria/excluirCategoria", (req, res) => {
+    res.send('Categoria excluído com sucesso');
 });
 
 module.exports = router;
