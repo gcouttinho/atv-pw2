@@ -26,8 +26,14 @@ const Produto = connection.define(
             type: sequelize.TEXT,
             allowNull: false
         }
+    },
+    {
+        timestamps: false
     }
 );
+
+Categoria.hasMany(Produto);
+Produto.belongsTo(Categoria);
 
 Produto.sync({ force: false })
 

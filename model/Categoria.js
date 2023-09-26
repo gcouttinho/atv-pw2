@@ -24,10 +24,10 @@ const Categoria = connection.define(
     }
 );
 
-Categoria.belongsTo(Produto, {
-    constraint: true,
-    foreignKey: 'codigo_categoria'
-})
+// Categoria.belongsTo(Produto, {
+//     constraint: true,
+//     foreignKey: 'codigo_categoria'
+// })
 
 Categoria.sync({ force: false })
 

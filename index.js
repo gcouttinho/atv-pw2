@@ -3,8 +3,6 @@ const app = express();
 
 app.use(express.json());
 
-const connection = require("./database/database");
-
 const produtoController = require("./controller/Produto");
 app.use("/", produtoController);
 
