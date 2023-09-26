@@ -7,19 +7,48 @@ router.get("/categoria", (req, res) => {
 });
 
 router.post("/categoria/cadastrarCategoria", (req, res) => {
-    res.send('Categoria cadastrado com sucesso');
+    let { nome_categoria, observacoes_categoria } = req.body;
+
+    console.log(req.body)
+
+    categoriaModel.create({ nome_categoria, observacoes_categoria })
+        .then(() => {
+            return res.status(201).json({
+                errorStatus: false,
+                messageStatus: "Categoria inserida com sucesso!"
+            })
+        })
+        .catch(((error) => {
+            return res.status(500).json({
+                errorStatus: true,
+                messageStatus: error
+            });
+        }));
 });
 
 router.get("/categoria/listarCategoria", (req, res) => {
-    res.send('Categoria listado com sucesso');
+    categoriaModel.findAll()
+    .then((categoria) => {
+        res.status(200).json({
+            errorStatus: false,
+            messageStatus: "categorias listadas com sucesso",
+            categoria: categoria,
+        });
+    })
+    .catch((error) => {
+        res.status(500).json({
+            errorStatus: true,
+            messageStatus: error.message,
+        });
+    });
 });
 
 router.put("/categoria/alterarCategoria", (req, res) => {
-    res.send('Categoria alterado com sucesso');
+    res.send('Categoria alterada com sucesso');
 });
 
 router.delete("/categoria/excluirCategoria", (req, res) => {
-    res.send('Categoria excluído com sucesso');
+    res.send('Categoria excluída com sucesso');
 });
 
 module.exports = router;
