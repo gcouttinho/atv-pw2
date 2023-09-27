@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "fcc0ecfc-9a8c-40fc-b7bd-0ef0f37465a4",
+		"name": "atv_pw2 Copy",
+		"description": "Collection para realizaar a Primeira atividade pratica de PW2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28072813"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Raiz produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/produto"
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrarProduto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_produto\": \"Calça Moleton\",\r\n    \"valor_produto\": 79.99,\r\n    \"imagem_produto\": \"calçaMoleton.png\",\r\n    \"descricao_produto\": \"Calça Azul da nike de moletom\",\r\n    \"codigo_categoria\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/produto/cadastrarProduto"
+					},
+					"response": []
+				},
+				{
+					"name": "listarProduto",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/produto/listarProdutos"
+					},
+					"response": []
+				},
+				{
+					"name": "alterarProduto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/produto/alterarProduto"
+					},
+					"response": []
+				},
+				{
+					"name": "excluirProduto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/produto/excluirProduto"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Raiz categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/categoria"
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrarCategoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_categoria\": \"Roupas\",\r\n    \"observacoes_categoria\": \"Roupas em geral\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/categoria/cadastrarCategoria"
+					},
+					"response": []
+				},
+				{
+					"name": "listarCategoria",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/categoria/listarCategoria"
+					},
+					"response": []
+				},
+				{
+					"name": "alterarCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/categoria/alterarCategoria"
+					},
+					"response": []
+				},
+				{
+					"name": "excluirCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/categoria/excluirCategoria"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -25,6 +25,14 @@ const Produto = connection.define(
         descricao_produto: {
             type: sequelize.TEXT,
             allowNull: false
+        },
+        codigo_categoria: {
+            type: sequelize.INTEGER(10).UNSIGNED,
+            allowNull: false,
+            references: {
+                model: Categoria,
+                key: 'codigo_categoria',
+            },
         }
     },
     {
@@ -32,9 +40,9 @@ const Produto = connection.define(
     }
 );
 
-Categoria.hasMany(Produto);
-Produto.belongsTo(Categoria);
+Categoria.hasMany(Produto, { foreignKey: 'codigo_categoria' });
+Produto.belongsTo(Categoria, { foreignKey: 'codigo_categoria' });
 
 Produto.sync({ force: false })
 
-module.exports = Produto
+module.exports = Produto;

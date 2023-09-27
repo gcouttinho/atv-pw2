@@ -7,31 +7,32 @@ router.get("/produto", (req, res) => {
 });
 
 router.post("/produto/cadastrarProduto", (req, res) => {
-    let { nome_produto, valor_produto, imagem_produto, descricao_produto } = req.body;
+    let { nome_produto, valor_produto, imagem_produto, descricao_produto, codigo_categoria } = req.body;
 
     console.log(req.body)
 
-    produtoModel.create({ nome_produto, valor_produto, imagem_produto, descricao_produto })
+    produtoModel.create({ nome_produto, valor_produto, imagem_produto, descricao_produto, codigo_categoria })
         .then(() => {
             return res.status(201).json({
                 errorStatus: false,
-                messageStatus: "Produto inserido com sucesso!"
+                messageStatus: `${nome_produto} inserido(a) com sucesso!`
             })
         })
-        .catch(((error) => {
+        .catch((error) => {
             return res.status(500).json({
                 errorStatus: true,
                 messageStatus: error
             });
-        }));
+        });
 });
+
 
 router.get("/produto/listarProdutos", (req, res) => {
     produtoModel.findAll()
         .then((produtos) => {
             res.status(200).json({
                 errorStatus: false,
-                messageStatus: "Produtos listados com sucesso",
+                messageStatus: `Você tem ${produtos.length} produto(s) cadastrado(s)!`,
                 produtos: produtos,
             });
         })

@@ -15,7 +15,7 @@ router.post("/categoria/cadastrarCategoria", (req, res) => {
         .then(() => {
             return res.status(201).json({
                 errorStatus: false,
-                messageStatus: `Categoria ${nome_categoria} inserida com sucesso! Observações: ${observacoes_categoria}`
+                messageStatus: `Categoria ${nome_categoria} inserida com sucesso!`
             });
         })
         .catch((error) => {
@@ -28,19 +28,19 @@ router.post("/categoria/cadastrarCategoria", (req, res) => {
 
 router.get("/categoria/listarCategoria", (req, res) => {
     categoriaModel.findAll()
-    .then((categoria) => {
-        res.status(200).json({
-            errorStatus: false,
-            messageStatus: "categorias listadas com sucesso",
-            categoria: categoria,
+        .then((categoria) => {
+            res.status(200).json({
+                errorStatus: false,
+                messageStatus: `Você tem ${categoria.length} categoria(s) cadastrada(s)!`,
+                categoria: categoria,
+            });
+        })
+        .catch((error) => {
+            res.status(500).json({
+                errorStatus: true,
+                messageStatus: error.message,
+            });
         });
-    })
-    .catch((error) => {
-        res.status(500).json({
-            errorStatus: true,
-            messageStatus: error.message,
-        });
-    });
 });
 
 router.put("/categoria/alterarCategoria", (req, res) => {
