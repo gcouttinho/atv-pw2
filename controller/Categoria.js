@@ -15,15 +15,15 @@ router.post("/categoria/cadastrarCategoria", (req, res) => {
         .then(() => {
             return res.status(201).json({
                 errorStatus: false,
-                messageStatus: "Categoria inserida com sucesso!"
-            })
+                messageStatus: `Categoria ${nome_categoria} inserida com sucesso!`
+            });
         })
-        .catch(((error) => {
+        .catch((error) => {
             return res.status(500).json({
                 errorStatus: true,
                 messageStatus: error
             });
-        }));
+        });
 });
 
 router.get("/categoria/listarCategoria", (req, res) => {
