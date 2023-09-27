@@ -15,7 +15,7 @@ router.post("/categoria/cadastrarCategoria", (req, res) => {
         .then(() => {
             return res.status(201).json({
                 errorStatus: false,
-                messageStatus: `Categoria ${nome_categoria} inserida com sucesso!`
+                messageStatus: `Categoria ${nome_categoria} inserida com sucesso! Observações: ${observacoes_categoria}`
             });
         })
         .catch((error) => {
