@@ -26,7 +26,7 @@ npm install express sequelize mysql2
 ```sh
 npm install --save-dev nodemon
 ```
-> [!ATENÇÃO]
+> [!ATTENTION]
 >Nas instruções passadas pelo professor, o Nodemon deveria ser instalado como uma dependencia local por isso ele será instalado separadamente.
 
 ##
