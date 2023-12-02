@@ -31,5 +31,5 @@ npm install --save-dev nodemon
 
 ##
 > [!IMPORTANT]
->Neste Projeto irei colocar em prática conteudos vistos duranmte a aula ate o dia 19/09/2023.
+>Neste Projeto irei colocar em prática conteudos vistos até o dia 19/09/2023.
 
